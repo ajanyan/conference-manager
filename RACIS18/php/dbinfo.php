@@ -1,3 +1,0 @@
-<?php
-    $dbname='RACIS18';
-?>

@@ -54,12 +54,12 @@ $sql1 = "INSERT INTO conference (cname) VALUES('$cname')";
 if(mysqli_query($db1,$sql1))
 {
     echo "Please wait while creating conference...........";
-    if(!file_exists("$cname"))
+    if(!file_exists("conferences/$cname"))
     {
-        mkdir("$cname");
+        mkdir("conferences/$cname");
     }
-    filecopy("resources","$cname");
-    $myfile = fopen("$cname/php/dbinfo.php", "w");
+    filecopy("resources","conferences/$cname");
+    $myfile = fopen("conferences/$cname/php/dbinfo.php", "w");
     $txt = "<?php
     \$dbname='$cname';
 ?>";
@@ -70,16 +70,17 @@ if(mysqli_query($db1,$sql1))
 
 ////////////////////////////////////////////////////////
 
-    $myfile1 = fopen("$cname/php/conferencecheck.php", "w");
+    $myfile1 = fopen("conferences/$cname/php/conferencecheck.php", "w");
     $txt1 = "<?php
     if(!isset(\$_SESSION[\"cname\"]))
     {
-        header(\"location:../../index.php\");
+        header(\"location:../../../index.php\");
         
     }
     if(\$_SESSION[\"cname\"]!='$cname')
     {
-       header(\"location:../../index.php\");
+        session_destroy();
+       header(\"location:../../../index.php\");
  
     }
 ?>";
@@ -96,7 +97,7 @@ if(mysqli_query($db1,$sql1))
 
     mysqli_query($db2,$sql2);
     
-    require("$cname/php/connect.php");
+    require("conferences/$cname/php/connect.php");
 ///////////////////////////////////////////////////////////////////////////////////////////////
 $filename="db/data.sql";
 // Temporary variable, used to store current query

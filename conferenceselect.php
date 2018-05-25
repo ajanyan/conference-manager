@@ -20,7 +20,7 @@ $row=mysqli_fetch_assoc($res);
 if($row["cstatus"]==1)
 {
 	$_SESSION["cname"]=$cname;
-	header("location:$cname/index.php");
+	header("location:conferences/$cname/index.php");
 }
 else
 {
