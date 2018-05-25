@@ -57,7 +57,7 @@
             <label for="password">Password</label>
             <input type="password" class="input-txt" name="password" placeholder='&#9900;&#9900;&#9900;&#9900;&#9900;&#9900;' required="">
           </div>
-          <button class="btn-login">Login</button>
+          <button class="btn-login">CREATE</button>
         </div>
       </form>
 

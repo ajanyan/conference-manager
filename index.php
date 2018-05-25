@@ -16,14 +16,6 @@
   </head>
   <body>
 
-<?php 
-    // session_start();
-    // if(isset($_SESSION["user"]))
-    // {
-    //     header("location:php/autologin.php");
-    // }
-?>
-    
 
 
 
@@ -39,18 +31,28 @@
         </div>
         <ul class="nav-links">
         	<li><a href="requestconference.php">Request Conference</a></li>
-        	<li><a href="design-team.html">Admin Login</a></li>
+        	<li><a href="adminlogin.php">Admin Login</a></li>
 			<li><a href="design-team.html">Design Team</a></li>
         </ul>
       </nav>
-      <form action="php/login.php" id="loginForm" method="post">
+      <form action="conferenceselect.php" id="loginForm" method="post">
         <h4 class="title"><i class="material-icons">&#xE879;</i>SELECT CONFERENCE</h4>
         <div class="form-body">
           <div class="input-grp">
             <label for="conf">AVAILABLE CONFERENCES</label>
 
 			<select class="input-txt" name="conf">
-				
+				<?php 
+					require("connect.php");
+					$sql="SELECT cname FROM conference";
+					$res=mysqli_query($db1,$sql);
+					while($row=mysqli_fetch_assoc($res))
+					{
+						echo"<option>$row[cname]</option>";
+					}
+
+
+				 ?>
 			</select>
 
 
@@ -65,7 +67,7 @@
 
          
       </form>
-
+<?php echo mysqli_error($db1); ?>
       <footer>
         <div class="footer-content">
           <span class="strong">Developed as part of Design Project</span>

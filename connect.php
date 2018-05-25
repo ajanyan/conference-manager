@@ -1,5 +1,5 @@
 <?php 
 
-$db = mysqli_connect( 'localhost' , 'root' ,'','econference' ) ;
+$db1 = mysqli_connect( 'localhost' , 'root' ,'','econference' ) ;
 
 ?>
