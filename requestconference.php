@@ -38,7 +38,7 @@
           NSS College of Engineering <br/> Econference System <!-- Seen in Mobile Devices -->
         </div>
         <ul class="nav-links">
-         
+          <li><a href="index.php">Home</a></li>
           <li><a href="design-team.html">Design Team</a></li>
         </ul>
       </nav>

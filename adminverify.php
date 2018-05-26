@@ -23,10 +23,10 @@
       <li class="nav-item active">
         <a class="nav-link" href="adminverify.php">Requested Conferences<span class="sr-only">(current)</span></a>
       </li>
-  <!--     <li class="nav-item">
-        <a class="nav-link" href="../php/completedpapers.php">Completed Papers</a>
-      </li>
       <li class="nav-item">
+        <a class="nav-link" href="deleteconference.php">Delete Conference</a>
+      </li>
+     <!--  <li class="nav-item">
         <a class="nav-link" href="../php/viewsubadmin.php">Manage Reviewer</a>
       </li>
       <li class="nav-item">
@@ -43,8 +43,8 @@
       </li>
       <li class="nav-item">
         <a class="nav-link" href="../php/changepassword.php">Change Password</a>
-      </li> -->
-
+      </li>
+ -->
     </ul>
     <ul class="navbar-nav">
       <li class="nav-item active">

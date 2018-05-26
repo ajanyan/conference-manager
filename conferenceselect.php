@@ -14,7 +14,7 @@ if(!isset($_POST["conf"]))
 $cname=$_POST["conf"];
 session_start();
 require("connect.php");
-$sql="SELECT cstatus FROM conference";
+$sql="SELECT cstatus FROM conference WHERE cname ='$cname'";
 $res=mysqli_query($db1,$sql);
 $row=mysqli_fetch_assoc($res);
 if($row["cstatus"]==1)
