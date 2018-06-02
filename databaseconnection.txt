@@ -1,5 +1,0 @@
-change sql details in
-connect.php
-connect1.php
-connect2.php
-resources/php/connect.php

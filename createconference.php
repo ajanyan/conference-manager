@@ -61,7 +61,7 @@ if(mysqli_query($db1,$sql1))
     filecopy("resources","conferences/$cname");
     $myfile = fopen("conferences/$cname/php/dbinfo.php", "w");
     $txt = "<?php
-    \$dbname='$cname';
+    \$dbname='con_'.'$cname';
 ?>";
 
 
@@ -92,7 +92,8 @@ if(mysqli_query($db1,$sql1))
 
 
     require("connect2.php");
-    $sql2="CREATE DATABASE $cname";
+    $dname="con_".$cname;
+    $sql2="CREATE DATABASE $dname";
 
 
     mysqli_query($db2,$sql2);

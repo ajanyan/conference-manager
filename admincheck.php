@@ -12,10 +12,13 @@
 	}
 	$user=$_POST["email"];
 	$pass=$_POST["password"];
+	print_r($_POST); 	
 	require("connect.php");
-	$sql="SELECT *FROM admin WHERE username='$user' AND password='$pass'";
+	$sql="SELECT * FROM admin WHERE username='$user' AND password='$pass'";
 	$res=mysqli_query($db1,$sql);
 	$num=mysqli_num_rows($res);
+	echo mysqli_error($db1);
+	echo $sql;
 	if($num==1)
 	{
 		session_start();
@@ -25,15 +28,15 @@
 	}
 	else
 	{
-		 echo"<script>
-               swal(
-                'Oops...',
-                'Username and Password does not match',
-                'warning'
-                ).then(function() {
-                window.location.href ='adminlogin.php'; 
-              });
-              </script>";
+	//	 echo"<script>
+      //         swal(
+        //        'Oops...',
+          //      'Username and Password does not match',
+            //    'warning'
+              //  ).then(function() {
+                //window.location.href ='adminlogin.php'; 
+              //});
+           //   </script>";
 	}
 
 

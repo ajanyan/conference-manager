@@ -13,7 +13,8 @@
 	$sql="DELETE FROM conference WHERE cname='$cname'";
 	mysqli_query($db1,$sql);
 	require("connect2.php");
-	$sql1="DROP DATABASE $cname";
+	$dname="con_".$cname;
+	$sql1="DROP DATABASE $dname";
 	mysqli_query($db2,$sql1);
 	echo mysqli_error($db2);
 	//////////////////////////////////////////////////////////////////
