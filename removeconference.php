@@ -8,15 +8,14 @@
   {
 	header("location:adminlogin.php");
   }
-  print_r($_REQUEST);
 	$cname=$_REQUEST["cname"];
-	echo "hjjhhjhjhjhj";
 	require ("connect.php");
 	$sql="DELETE FROM conference WHERE cname='$cname'";
 	mysqli_query($db1,$sql);
 	require("connect2.php");
-	$sql1="DROP DATABASE '$cname'";
+	$sql1="DROP DATABASE $cname";
 	mysqli_query($db2,$sql1);
+	echo mysqli_error($db2);
 	//////////////////////////////////////////////////////////////////
 	function deleteDirectory($dirPath) {
     if (is_dir($dirPath)) {
@@ -36,10 +35,10 @@
 }
 
 
- if(!file_exists("conferences/$cname"))
-    {
+ if(file_exists("conferences/$cname"))
+ {
         deleteDirectory("conferences/$cname");
-    }
+ }
 
 
 ///////////////////////////////////////////////////////////////////////////////

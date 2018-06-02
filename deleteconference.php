@@ -92,10 +92,19 @@ swal({
  var xhttp = new XMLHttpRequest();
 xhttp.onreadystatechange = function() {
   if (this.readyState == 4 && this.status == 200) {
+
+
+
  swal('Conference deleted!', {
       icon: 'success',
-    }); 
-window.location.href = window.location.href;
+    }).then((deleted) => {
+    	if(deleted){
+    		window.location.href = window.location.href;
+    	}
+    	}); 
+
+
+
 
      }
 };
@@ -106,18 +115,15 @@ xhttp.send();
 
    
   } else {
-    swal('Deletion Cancelled by User');
+    swal('Deletion Cancelled by User',{icon:'warning'});
+    
+   
   }
 });
 </script>";
 
   
 }
-
-
-
-
-
 
 
 require("connect.php");
