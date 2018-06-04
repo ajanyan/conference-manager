@@ -12,7 +12,6 @@
 	}
 	$user=$_POST["email"];
 	$pass=$_POST["password"];
-	print_r($_POST); 	
 	require("connect.php");
 	$sql="SELECT * FROM admin WHERE username='$user' AND password='$pass'";
 	$res=mysqli_query($db1,$sql);
