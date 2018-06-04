@@ -90,7 +90,7 @@ if(mysqli_query($db1,$sql1))
 
     fwrite($myfile1, $txt1);
 
-
+	
 //Create database for new conference
 
 
@@ -101,7 +101,7 @@ if(mysqli_query($db1,$sql1))
 
 
     mysqli_query($db2,$sql2);
-    
+    copy("dbconnect.php","conferences/$cname/php/dbconnect.php");
 //Import tables to database
 require("conferences/$cname/php/connect.php");
 
@@ -130,7 +130,7 @@ if (substr(trim($line), -1, 1) == ';')
 }
 }
  
-
+echo mysqli_error($db);
 
 
 
