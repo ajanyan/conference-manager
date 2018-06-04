@@ -11,6 +11,8 @@ if(!isset($_POST["cname"]))
 {
     header("location:requestconference.php");
 }
+
+//Copy Folders
 function filecopy($source, $dest)
 {
     // Check for symlinks
@@ -50,7 +52,7 @@ $cname = $_POST["cname"];
 $email = $_POST["email"];
 $password = $_POST["password"];
 $sql1 = "INSERT INTO conference (cname) VALUES('$cname')";
-//print_r($sql1);
+
 if(mysqli_query($db1,$sql1))
 {
     echo "Please wait while creating conference...........";
@@ -68,7 +70,7 @@ if(mysqli_query($db1,$sql1))
 
     fwrite($myfile, $txt);
 
-////////////////////////////////////////////////////////
+//Verifying conference
 
     $myfile1 = fopen("conferences/$cname/php/conferencecheck.php", "w");
     $txt1 = "<?php
@@ -87,7 +89,9 @@ if(mysqli_query($db1,$sql1))
 
 
     fwrite($myfile1, $txt1);
-/////////////////////////////////////////////////////////
+
+
+//Create database for new conference
 
 
 
@@ -98,8 +102,7 @@ if(mysqli_query($db1,$sql1))
 
     mysqli_query($db2,$sql2);
     
-    require("conferences/$cname/php/connect.php");
-///////////////////////////////////////////////////////////////////////////////////////////////
+//Import tables to database
 $filename="db/data.sql";
 // Temporary variable, used to store current query
 $templine = '';
@@ -128,7 +131,7 @@ if (substr(trim($line), -1, 1) == ';')
 
 
 
-//////////////////////////////////////////////////////////////////////////////////////////////  
+//Insert login data to database  
 
     $sql3="INSERT INTO des VALUES('$cname','$email','$password','admin')";
     mysqli_query($db,$sql3);
