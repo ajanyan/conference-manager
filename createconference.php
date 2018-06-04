@@ -103,6 +103,9 @@ if(mysqli_query($db1,$sql1))
     mysqli_query($db2,$sql2);
     
 //Import tables to database
+require("conferences/$cname/php/connect.php");
+
+
 $filename="db/data.sql";
 // Temporary variable, used to store current query
 $templine = '';
